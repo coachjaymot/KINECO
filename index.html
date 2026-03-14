@@ -165,6 +165,103 @@
     .footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.94rem; }
     .footer-line { border-top: 1px solid var(--line); padding-top: 1.4rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
+
+
+    .signup-section { padding: 4rem 0; }
+    .signup-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .signup-intro h2 { margin: 0 0 0.5rem; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.03em; line-height: 1.15; color: var(--navy); }
+    .signup-intro p { margin: 0; color: var(--muted); font-size: 0.97rem; line-height: 1.65; }
+
+    .form-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.82rem; font-weight: 700; color: var(--text); letter-spacing: 0.01em; }
+    .form-group input, .form-group select, .form-group textarea {
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--navy);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select option:disabled { color: #aab4bc; }
+    .form-group select option.coming-soon { color: #aab4bc; }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      background: rgba(45,106,87,0.07);
+      border: 1px solid rgba(45,106,87,0.15);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+    .form-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--navy);
+      cursor: pointer;
+    }
+    .form-check label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 0.95rem 1.5rem;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 14px 30px rgba(21,50,71,0.22);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .form-submit:hover { transform: translateY(-1px); }
+
+    .coming-soon-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 860px) {
+      .signup-card { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 1080px) {
       .hero-grid, .mission-card, .story-card, .split-section, .cta-wrap, .program-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -204,7 +301,7 @@
           <h1>Move <span>Together.</span></h1>
           <p>KINECO Athletics is a community-centered movement organization expanding access to sport, fitness, and physical activity.</p>
           <div class="hero-actions">
-            <a href="#connect" class="button">Join the interest list</a>
+            <a href="signup.html" class="button">Sign Up</a>
             <a href="#programs" class="button-secondary">Explore our programs</a>
           </div>
         </div>
@@ -298,8 +395,9 @@
             <h3>Get involved early.</h3>
             <p>Whether you're a prospective client, community partner, or employer — we'd love to connect.</p>
             <div class="cta-links">
-              <a href="#" class="button" style="background: #fff; color: var(--navy); box-shadow: none;">Join the list</a>
-              <a href="#" class="button-secondary" style="background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.14);">Partner with KINECO</a>
+              
+              <a href="signup.html" class="button" style="background: #fff; color: var(--navy); box-shadow: none;">Join</a>
+              <a href="signup.html" class="button-secondary" style="background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.14);">Partner with KINECO</a>
             </div>
           </div>
           <div class="cta-card">
