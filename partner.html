@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner with KINECO | KINECO Athletics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --surface: #ffffff;
+      --text: #18222b;
+      --muted: #5a6772;
+      --line: rgba(24, 34, 43, 0.08);
+      --navy: #153247;
+      --navy-2: #0f2737;
+      --green: #2d6a57;
+      --orange: #ef6c2f;
+      --shadow: 0 18px 40px rgba(21, 50, 71, 0.12);
+      --radius-xl: 28px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Inter", sans-serif; background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
+
+    /* NAV */
+    .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: rgba(251, 250, 247, 0.82); border-bottom: 1px solid rgba(24, 34, 43, 0.06); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
+    .brand { display: flex; align-items: center; gap: 0.85rem; font-weight: 800; letter-spacing: 0.06em; font-size: 0.96rem; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, var(--navy), var(--green)); position: relative; box-shadow: var(--shadow); flex-shrink: 0; }
+    .brand-mark::before, .brand-mark::after { content: ""; position: absolute; border-radius: 999px; background: rgba(255,255,255,0.92); }
+    .brand-mark::before { width: 20px; height: 6px; left: 11px; top: 10px; transform: rotate(-35deg); }
+    .brand-mark::after { width: 22px; height: 6px; right: 9px; bottom: 10px; transform: rotate(-35deg); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--navy); }
+
+    /* HERO */
+    .page-hero { padding: 4rem 0 3rem; }
+    .page-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .page-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 800; color: var(--green); margin-bottom: 0.75rem; }
+    .page-hero h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); letter-spacing: -0.04em; line-height: 1.05; margin: 0 0 1rem; color: var(--navy); }
+    .page-hero p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; margin: 0; }
+
+    .hero-dark-card {
+      background: radial-gradient(circle at top left, rgba(239,108,47,0.12), transparent 32%), linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 64%, #0b1e2b 100%);
+      color: white;
+      border-radius: 32px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .hero-dark-card h3 { margin: 0 0 0.5rem; font-size: 1.2rem; letter-spacing: -0.02em; }
+    .hero-dark-card p { margin: 0; color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.65; }
+    .hero-dark-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.25rem 0; }
+    .hero-dark-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-dark-stat strong { font-size: 1rem; font-weight: 800; }
+    .hero-dark-stat span { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+
+    /* PARTNER TYPES */
+    .section { padding: 4rem 0; }
+    .section-header { margin-bottom: 1.6rem; }
+    .section-header h2 { margin: 0 0 0.5rem; font-size: clamp(1.9rem, 3vw, 2.8rem); letter-spacing: -0.04em; line-height: 1.05; }
+    .section-header p { margin: 0; color: var(--muted); max-width: 55ch; font-size: 1rem; }
+
+    .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .partner-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 1.5rem; transition: transform 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column; gap: 1rem; }
+    .partner-card:hover { transform: translateY(-3px); border-color: rgba(21,50,71,0.14); }
+    .partner-card-top { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+    .partner-card h3 { margin: 0; font-size: 1.05rem; line-height: 1.2; color: var(--navy); }
+    .partner-card p { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+    .tag { background: rgba(239,108,47,0.12); color: var(--orange); border-radius: 999px; padding: 0.38rem 0.65rem; font-size: 0.78rem; font-weight: 800; white-space: nowrap; flex-shrink: 0; }
+    .tag-green { background: rgba(45,106,87,0.1); color: var(--green); }
+
+    .services-list { display: flex; flex-direction: column; gap: 0.4rem; margin: 0; padding: 0; list-style: none; }
+    .services-list li { font-size: 0.85rem; color: var(--muted); padding: 0.35rem 0; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 0.5rem; }
+    .services-list li::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--green); flex-shrink: 0; opacity: 0.7; }
+
+    /* BENEFITS */
+    .benefits-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 1.6rem; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+    .benefits-copy h2 { margin: 0 0 0.75rem; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.03em; line-height: 1.1; color: var(--navy); }
+    .benefits-copy p { margin: 0; color: var(--muted); font-size: 0.97rem; line-height: 1.7; }
+    .benefits-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.9rem 1rem; background: rgba(45,106,87,0.06); border: 1px solid rgba(45,106,87,0.12); border-radius: 14px; }
+    .benefit-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--green); flex-shrink: 0; margin-top: 6px; }
+    .benefit-item p { margin: 0; font-size: 0.9rem; color: var(--text); font-weight: 600; line-height: 1.5; }
+    .benefit-item span { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
+
+    /* FORM */
+    .form-section { padding: 4rem 0 6rem; }
+    .form-grid-wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: start; }
+    .form-intro { position: sticky; top: 100px; }
+    .form-intro h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 0.75rem; color: var(--navy); }
+    .form-intro p { color: var(--muted); font-size: 0.97rem; line-height: 1.7; margin: 0; }
+
+    .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow); }
+    .form-fields { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    .form-group input, .form-group select, .form-group textarea {
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; border: none; border-radius: 999px; padding: 1rem 1.5rem; font-family: "Inter", sans-serif; font-size: 1rem; font-weight: 700; background: var(--navy); color: white; box-shadow: 0 14px 30px rgba(21,50,71,0.22); cursor: pointer; transition: transform 0.2s ease; }
+    .form-submit:hover { transform: translateY(-1px); }
+    .form-note { font-size: 0.82rem; color: var(--muted); text-align: center; line-height: 1.5; margin: 0; }
+
+    .success-state { display: none; text-align: center; padding: 2rem; }
+    .success-state h3 { font-size: 1.5rem; color: var(--navy); margin: 0 0 0.5rem; letter-spacing: -0.03em; }
+    .success-state p { color: var(--muted); margin: 0 0 1.5rem; }
+
+    /* FOOTER */
+    .footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.94rem; }
+    .footer-line { border-top: 1px solid var(--line); padding-top: 1.4rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+    @media (max-width: 1080px) {
+      .partner-grid { grid-template-columns: 1fr 1fr; }
+      .benefits-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .page-hero-grid, .form-grid-wrap { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .partner-grid { grid-template-columns: 1fr; }
+      .form-intro { position: static; }
+      .section, .page-hero, .form-section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="KINECO Athletics home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>KINECO ATHLETICS</span>
+      </a>
+      <a href="index.html" class="back-link">← Back to home</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container page-hero-grid">
+        <div>
+          <div class="page-label">Partnerships</div>
+          <h1>Let's Build Something Together.</h1>
+          <p>KINECO works with employers, community organizations, parks departments, city agencies, and private groups to bring purposeful movement programming to the people who need it most.</p>
+        </div>
+        <div class="hero-dark-card">
+          <h3>Why partner with KINECO?</h3>
+          <p>We bring the programming, the expertise, and the community relationships. You bring the space, the people, or the resources. Together we create something neither of us could build alone.</p>
+          <hr class="hero-dark-divider" />
+          <div class="hero-dark-stat">
+            <strong>Flexible partnership models</strong>
+            <span>From single events to long-term contracts — built around what works for you.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER TYPES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Who we work with.</h2>
+          <p>Every partnership is shaped around the specific needs, goals, and communities of the organization we're working with.</p>
+        </div>
+        <div class="partner-grid">
+
+          <div class="partner-card">
+            <div class="partner-card-top">
+              <h3>Employers & Corporations</h3>
+              <span class="tag">B2B</span>
+            </div>
+            <p>Invest in the physical readiness and wellbeing of your workforce through structured fitness and occupational health programming.</p>
+            <ul class="services-list">
+              <li>Workforce fitness programs</li>
+              <li>Occupational health training</li>
+              <li>Employee wellness sessions</li>
+              <li>Physical readiness for demanding roles</li>
+            </ul>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-card-top">
+              <h3>Community Organizations & Nonprofits</h3>
+              <span class="tag">Community</span>
+            </div>
+            <p>Bring accessible, mission-aligned sport and fitness programming to the communities you already serve.</p>
+            <ul class="services-list">
+              <li>Subsidized programming partnerships</li>
+              <li>Access and inclusion initiatives</li>
+              <li>Co-sponsored community events</li>
+              <li>Shared resource agreements</li>
+            </ul>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-card-top">
+              <h3>Parks & Recreation Departments</h3>
+              <span class="tag">Public</span>
+            </div>
+            <p>Activate underutilized spaces and expand programming offerings through a trusted community athletics partner.</p>
+            <ul class="services-list">
+              <li>Court and field programming</li>
+              <li>League management and operations</li>
+              <li>Seasonal clinics and camps</li>
+              <li>Community activation events</li>
+            </ul>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-card-top">
+              <h3>City & Government Agencies</h3>
+              <span class="tag">Civic</span>
+            </div>
+            <p>Align physical activity programming with public health, workforce development, and community wellbeing goals.</p>
+            <ul class="services-list">
+              <li>Workforce development contracts</li>
+              <li>Public health initiatives</li>
+              <li>Community activation programming</li>
+              <li>Grant-aligned program delivery</li>
+            </ul>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-card-top">
+              <h3>Private Groups & Organizations</h3>
+              <span class="tag tag-green">Flexible</span>
+            </div>
+            <p>Faith communities, clubs, teams, and private groups looking for structured programming, training, or events.</p>
+            <ul class="services-list">
+              <li>Private lessons and group clinics</li>
+              <li>Team training sessions</li>
+              <li>Custom event programming</li>
+              <li>Ongoing group memberships</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="benefits-card">
+          <div class="benefits-copy">
+            <h2>What you can expect from KINECO.</h2>
+            <p>Every partnership is built on clear communication, shared purpose, and programming that actually delivers for the people it serves.</p>
+          </div>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <div class="benefit-dot"></div>
+              <div><p>Expert-led programming <span>— grounded in kinesiology, shaped by community experience</span></p></div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-dot"></div>
+              <div><p>Flexible delivery <span>— we come to your space, your people, your schedule</span></p></div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-dot"></div>
+              <div><p>Mission alignment <span>— access, inclusion, and real outcomes at the center of everything</span></p></div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-dot"></div>
+              <div><p>Clear communication <span>— responsive, professional, and easy to work with</span></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="form-section" id="inquire">
+      <div class="container form-grid-wrap">
+        <div class="form-intro">
+          <div class="page-label">Get in Touch</div>
+          <h2>Start a partnership conversation.</h2>
+          <p>Tell us about your organization and what you're looking for. We'll follow up within 1–2 business days to explore what's possible.</p>
+        </div>
+        <div class="form-card">
+          <div id="form-state">
+            <div class="form-fields">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="p-name">Your Name</label>
+                  <input type="text" id="p-name" placeholder="Full name" />
+                </div>
+                <div class="form-group">
+                  <label for="p-org">Organization Name</label>
+                  <input type="text" id="p-org" placeholder="Your organization" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="p-email">Email Address</label>
+                  <input type="email" id="p-email" placeholder="you@organization.com" />
+                </div>
+                <div class="form-group">
+                  <label for="p-phone">Phone Number</label>
+                  <input type="tel" id="p-phone" placeholder="(510) 000-0000" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="p-type">Partnership Type</label>
+                <select id="p-type">
+                  <option value="" disabled selected>Select your organization type</option>
+                  <option value="employer">Employer / Corporation</option>
+                  <option value="nonprofit">Community Organization / Nonprofit</option>
+                  <option value="parks">Parks & Recreation Department</option>
+                  <option value="government">City / Government Agency</option>
+                  <option value="private">Private Group / Organization</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="p-message">Tell us about your goals</label>
+                <textarea id="p-message" placeholder="What are you hoping to achieve? What communities or employees would you like to serve? Any other details that would help us understand your needs..."></textarea>
+              </div>
+              <button class="form-submit" onclick="handlePartnerSubmit()">Submit Inquiry</button>
+              <p class="form-note">We'll follow up by email within 1–2 business days.</p>
+            </div>
+          </div>
+          <div class="success-state" id="success-state">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">✓</div>
+            <h3>Inquiry received.</h3>
+            <p>Thanks for reaching out. We'll be in touch within 1–2 business days to explore what's possible.</p>
+            <a href="index.html" style="display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0.85rem 1.5rem;font-weight:700;font-size:0.95rem;background:var(--navy);color:#fff;box-shadow:0 14px 30px rgba(21,50,71,0.22);">Back to KINECO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-line">
+      <div><strong style="color: var(--navy);">KINECO ATHLETICS</strong> — Move Together</div>
+      <div>East Bay rooted · Community centered · Built with purpose</div>
+    </div>
+  </footer>
+
+  <script>
+    function handlePartnerSubmit() {
+      const name = document.getElementById('p-name').value.trim();
+      const email = document.getElementById('p-email').value.trim();
+      const type = document.getElementById('p-type').value;
+      if (!name || !email || !type) {
+        alert('Please fill in your name, email, and organization type.');
+        return;
+      }
+      document.getElementById('form-state').style.display = 'none';
+      document.getElementById('success-state').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
