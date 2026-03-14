@@ -6,10 +6,7 @@
   <title>KINECO Athletics | Move Together</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #f7f5ef;
@@ -24,572 +21,160 @@
       --orange: #ef6c2f;
       --shadow: 0 18px 40px rgba(21, 50, 71, 0.12);
       --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
       --max: 1180px;
     }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Inter", sans-serif; background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
 
-    * {
-      box-sizing: border-box;
-    }
+    /* NAV */
+    .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: rgba(251, 250, 247, 0.82); border-bottom: 1px solid rgba(24, 34, 43, 0.06); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
+    .brand { display: flex; align-items: center; gap: 0.85rem; font-weight: 800; letter-spacing: 0.06em; font-size: 0.96rem; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, var(--navy), var(--green)); position: relative; box-shadow: var(--shadow); flex-shrink: 0; }
+    .brand-mark::before, .brand-mark::after { content: ""; position: absolute; border-radius: 999px; background: rgba(255,255,255,0.92); }
+    .brand-mark::before { width: 20px; height: 6px; left: 11px; top: 10px; transform: rotate(-35deg); }
+    .brand-mark::after { width: 22px; height: 6px; right: 9px; bottom: 10px; transform: rotate(-35deg); }
+    .nav-links { display: flex; align-items: center; gap: 1.25rem; color: var(--muted); font-weight: 600; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--navy); }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    /* BUTTONS */
+    .button, .button-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 999px; padding: 0.92rem 1.25rem; font-weight: 700; transition: transform 0.2s ease; cursor: pointer; font-size: 0.95rem; }
+    .button { background: var(--navy); color: #fff; box-shadow: 0 14px 30px rgba(21,50,71,0.22); }
+    .button-secondary { background: rgba(21,50,71,0.07); color: var(--navy); border: 1px solid rgba(21,50,71,0.08); }
+    .button:hover, .button-secondary:hover { transform: translateY(-1px); }
 
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    /* HERO */
+    .hero { padding: 4.5rem 0 3rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 2rem; align-items: stretch; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.45rem 0.8rem; border-radius: 999px; background: rgba(45,106,87,0.1); color: var(--green); font-weight: 700; font-size: 0.86rem; margin-bottom: 1.2rem; }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 0.96; margin: 0 0 1rem; letter-spacing: -0.06em; max-width: 10ch; }
+    .hero h1 span { color: var(--navy); display: block; }
+    .hero p { font-size: 1.08rem; color: var(--muted); max-width: 56ch; margin: 0 0 1.5rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(calc(100% - 2rem), var(--max));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(251, 250, 247, 0.82);
-      border-bottom: 1px solid rgba(24, 34, 43, 0.06);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      min-height: 76px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      font-size: 0.96rem;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--navy), var(--green));
-      position: relative;
-      box-shadow: var(--shadow);
-      flex-shrink: 0;
-    }
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
-    }
-
-    .brand-mark::before {
-      width: 20px;
-      height: 6px;
-      left: 11px;
-      top: 10px;
-      transform: rotate(-35deg);
-    }
-
-    .brand-mark::after {
-      width: 22px;
-      height: 6px;
-      right: 9px;
-      bottom: 10px;
-      transform: rotate(-35deg);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--navy);
-    }
-
-    .button,
-    .button-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      padding: 0.92rem 1.25rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-    }
-
-    .button {
-      background: var(--navy);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(21, 50, 71, 0.22);
-    }
-
-    .button-secondary {
-      background: rgba(21, 50, 71, 0.07);
-      color: var(--navy);
-      border: 1px solid rgba(21, 50, 71, 0.08);
-    }
-
-    .button:hover,
-    .button-secondary:hover {
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      padding: 4.5rem 0 3rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(45, 106, 87, 0.1);
-      color: var(--green);
-      font-weight: 700;
-      font-size: 0.86rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
-      line-height: 0.96;
-      margin: 0 0 1rem;
-      letter-spacing: -0.06em;
-      max-width: 10ch;
-    }
-
-    .hero h1 span {
-      color: var(--navy);
-      display: block;
-    }
-
-    .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 56ch;
-      margin: 0 0 1.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-notes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .hero-notes span {
-      background: rgba(255, 255, 255, 0.65);
-      border: 1px solid var(--line);
-      padding: 0.6rem 0.8rem;
-      border-radius: 999px;
-    }
-
+    /* VISUAL CARD */
     .visual-card {
-      background:
-        radial-gradient(circle at top left, rgba(239, 108, 47, 0.12), transparent 32%),
-        linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 64%, #0b1e2b 100%);
+      background: radial-gradient(circle at top left, rgba(239,108,47,0.12), transparent 32%), linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 64%, #0b1e2b 100%);
       color: white;
       border-radius: 32px;
-      padding: 1.4rem;
+      padding: 1.75rem;
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      min-height: 520px;
-    }
-
-    .visual-card::before,
-    .visual-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      filter: blur(1px);
-    }
-
-    .visual-card::before {
-      width: 260px;
-      height: 260px;
-      top: -90px;
-      right: -90px;
-    }
-
-    .visual-card::after {
-      width: 190px;
-      height: 190px;
-      bottom: -60px;
-      left: -60px;
-    }
-
-    .phone {
-      position: absolute;
-      right: 1.25rem;
-      bottom: 1.2rem;
-      width: min(62%, 310px);
-      background: rgba(255, 255, 255, 0.98);
-      color: var(--text);
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 1rem;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
-    }
-
-    .phone-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.9rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .mini-card {
-      background: var(--surface-2);
-      border-radius: 18px;
-      padding: 0.9rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .mini-kicker {
-      color: var(--green);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      margin-bottom: 0.35rem;
-    }
-
-    .mini-title {
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 0.35rem;
-    }
-
-    .mini-text {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .stat-box {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      padding: 1rem;
-    }
-
-    .stat-box strong {
-      display: block;
-      font-size: 1.4rem;
-      line-height: 1;
-      margin-bottom: 0.35rem;
-    }
-
-    .stat-box span {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .section {
-      padding: 4rem 0;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: end;
-      margin-bottom: 1.6rem;
-    }
-
-    .section-header h2 {
-      margin: 0;
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-    }
-
-    .section-header p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 55ch;
-    }
-
-    .mission-card {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      padding: 1.6rem;
-      box-shadow: var(--shadow);
-    }
-
-    .quote-block {
-      background: linear-gradient(180deg, #fbf8f2 0%, #f4efe5 100%);
-      border: 1px solid rgba(24, 34, 43, 0.06);
-      border-radius: 24px;
-      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 1.25rem;
     }
+    .visual-card-heading { margin: 0; font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.04em; text-align: center; }
+    .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; flex: 1; }
+    .pillar-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: background 0.2s; }
+    .pillar-pill.wide { grid-column: span 2; }
+    .pillar-pill:hover { background: rgba(255,255,255,0.11); }
+    .pillar-name { font-weight: 800; font-size: 0.9rem; line-height: 1.2; text-align: center; }
+    .pillar-desc { font-size: 0.78rem; color: rgba(255,255,255,0.52); line-height: 1.4; text-align: center; }
+    .visual-mission { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.5; font-style: italic; text-align: center; }
 
-    .quote-block p {
-      font-size: 1.25rem;
-      line-height: 1.35;
-      letter-spacing: -0.02em;
-      margin: 0 0 1rem;
-      color: var(--navy);
-      font-weight: 700;
-    }
+    /* SECTIONS */
+    .section { padding: 4rem 0; }
+    .section-header { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1.6rem; }
+    .section-header h2 { margin: 0; font-size: clamp(1.9rem, 3vw, 3rem); letter-spacing: -0.04em; line-height: 1.05; }
+    .section-header p { margin: 0; color: var(--muted); max-width: 55ch; }
 
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 1.4rem;
-    }
-
-    .pillar-card,
-    .program-card,
-    .value-card,
-    .cta-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 1.35rem;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pillar-card:hover,
-    .program-card:hover,
-    .value-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(21, 50, 71, 0.14);
-    }
-
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: rgba(21, 50, 71, 0.08);
-      color: var(--navy);
-      font-size: 0.88rem;
+    /* MISSION CARD */
+    .mission-card { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 1.6rem; box-shadow: var(--shadow); }
+    .mission-copy p { margin: 0 0 1rem; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .mission-copy p:last-child { margin-bottom: 0; }
+    .quote-block { background: linear-gradient(180deg, #fbf8f2 0%, #f4efe5 100%); border: 1px solid rgba(24,34,43,0.06); border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .quote-block p { font-size: 0.97rem; line-height: 1.65; margin: 0 0 0.85rem; color: var(--navy); font-weight: 600; }
+    .quote-block-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       font-weight: 800;
-      margin-bottom: 0.8rem;
+      color: var(--green);
+      margin-bottom: 0.75rem;
     }
+    .quote-block-footer { color: var(--muted); font-weight: 700; font-size: 0.9rem; }
 
-    .pillar-card h3,
-    .program-card h3,
-    .value-card h3,
-    .cta-card h3 {
-      margin: 0 0 0.45rem;
-      font-size: 1.08rem;
-      line-height: 1.2;
-    }
-
-    .pillar-card p,
-    .program-card p,
-    .value-card p,
-    .cta-card p,
-    .mission-copy p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .program-grid,
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .program-top,
-    .value-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 1rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .tag {
-      background: rgba(239, 108, 47, 0.12);
-      color: var(--orange);
-      border-radius: 999px;
-      padding: 0.38rem 0.65rem;
-      font-size: 0.78rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 1.2rem;
-      align-items: start;
-    }
-
-    .cta-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .cta-card.dark {
+    /* PULLQUOTE */
+    .pullquote-section { padding: 1rem 0 4rem; }
+    .pullquote-inner {
       background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
-      color: white;
-      border: none;
+      border-radius: 32px;
+      padding: 3.5rem 2rem;
+      text-align: center;
       box-shadow: var(--shadow);
     }
-
-    .cta-card.dark p {
-      color: rgba(255, 255, 255, 0.78);
+    .pullquote-inner blockquote {
+      margin: 0 auto;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      color: #ffffff;
+      max-width: 22ch;
+    }
+    .pullquote-inner blockquote em {
+      color: rgba(255,255,255,0.45);
+      font-style: normal;
     }
 
-    .cta-links {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
+    /* OUR STORY */
+    .story-card { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 1.6rem; box-shadow: var(--shadow); }
+    .story-body p { margin: 0 0 1rem; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body p strong { color: var(--text); font-weight: 700; }
+    .story-accent { background: linear-gradient(180deg, #fbf8f2 0%, #f4efe5 100%); border: 1px solid rgba(24,34,43,0.06); border-radius: 24px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .story-accent-line { font-size: 1.15rem; font-weight: 700; color: var(--navy); line-height: 1.4; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .story-accent-sub { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
 
-    .footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
+    /* PROGRAMS */
+    .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .program-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 1.35rem; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .program-card:hover { transform: translateY(-3px); border-color: rgba(21,50,71,0.14); }
+    .program-top { display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-bottom: 0.8rem; }
+    .program-card h3 { margin: 0; font-size: 1.08rem; line-height: 1.2; }
+    .program-card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    .tag { background: rgba(239,108,47,0.12); color: var(--orange); border-radius: 999px; padding: 0.38rem 0.65rem; font-size: 0.78rem; font-weight: 800; white-space: nowrap; }
 
-    .footer-line {
-      border-top: 1px solid var(--line);
-      padding-top: 1.4rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    /* APPROACH */
+    .split-section { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 1.2rem; align-items: start; }
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .value-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 1.35rem; transition: transform 0.2s ease; }
+    .value-card:hover { transform: translateY(-3px); }
+    .value-top { display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-bottom: 0.8rem; }
+    .value-card h3 { margin: 0 0 0.45rem; font-size: 1.08rem; }
+    .value-card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    .dark-card { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: white; border-radius: 24px; padding: 1.35rem; box-shadow: var(--shadow); }
+    .dark-card h3 { margin: 0 0 0.45rem; font-size: 1.08rem; color: white; }
+    .dark-card p { margin: 0; color: rgba(255,255,255,0.75); font-size: 0.96rem; }
+
+    /* CTA */
+    .cta-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .cta-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 1.35rem; }
+    .cta-card h3 { margin: 0 0 0.45rem; font-size: 1.08rem; }
+    .cta-card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+    .cta-card.dark { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%); color: white; border: none; box-shadow: var(--shadow); }
+    .cta-card.dark h3 { color: white; }
+    .cta-card.dark p { color: rgba(255,255,255,0.78); }
+    .cta-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    /* FOOTER */
+    .footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.94rem; }
+    .footer-line { border-top: 1px solid var(--line); padding-top: 1.4rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
     @media (max-width: 1080px) {
-      .hero-grid,
-      .mission-card,
-      .split-section,
-      .cta-wrap,
-      .program-grid,
-      .values-grid,
-      .pillars {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-grid {
-        align-items: stretch;
-      }
+      .hero-grid, .mission-card, .story-card, .split-section, .cta-wrap, .program-grid { grid-template-columns: 1fr 1fr; }
     }
-
     @media (max-width: 760px) {
-      .nav {
-        flex-wrap: wrap;
-        padding: 0.85rem 0;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-        font-size: 0.9rem;
-      }
-
-      .hero,
-      .section {
-        padding: 3rem 0;
-      }
-
-      .hero-grid,
-      .mission-card,
-      .program-grid,
-      .values-grid,
-      .pillars,
-      .split-section,
-      .cta-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .section-header {
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .visual-card {
-        min-height: 460px;
-      }
-
-      .phone {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        width: 100%;
-        margin-top: 1rem;
-      }
-
-      .stats-row {
-        grid-template-columns: 1fr;
-      }
+      .nav { flex-wrap: wrap; padding: 0.85rem 0; }
+      .nav-links { width: 100%; justify-content: space-between; font-size: 0.9rem; }
+      .hero, .section, .pullquote-section { padding: 3rem 0; }
+      .hero-grid, .mission-card, .story-card, .program-grid, .values-grid, .split-section, .cta-wrap { grid-template-columns: 1fr; }
+      .section-header { flex-direction: column; align-items: start; }
+      .pullquote-inner { padding: 2.5rem 1.25rem; }
     }
   </style>
 </head>
@@ -602,304 +187,135 @@
       </a>
       <nav class="nav-links">
         <a href="#mission">Mission</a>
+        <a href="#story">Our Story</a>
         <a href="#programs">Programs</a>
-        <a href="#model">Approach</a>
         <a href="#connect">Connect</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
+
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Modern athletic community • Bay Area rooted</div>
+          <div class="eyebrow">Modern athletic community · East Bay rooted</div>
           <h1>Move <span>Together.</span></h1>
-          <p>
-            KINECO Athletics is a community-centered movement organization expanding access to sport, fitness, and physical activity.
-          </p>
-
+          <p>KINECO Athletics is a community-centered movement organization expanding access to sport, fitness, and physical activity.</p>
           <div class="hero-actions">
             <a href="#connect" class="button">Join the interest list</a>
-            <a href="#programs" class="button-secondary">Explore the concept</a>
-          </div>
-
-          <div class="hero-notes">
-            <span>Tennis & skill development</span>
-            <span>Fitness for real-life goals</span>
-            <span>Access-driven programming</span>
+            <a href="#programs" class="button-secondary">Explore our programs</a>
           </div>
         </div>
-
         <div class="visual-card">
-          <div class="mini-kicker">Concept Snapshot</div>
-          <h2 style="margin: 0 0 0.65rem; font-size: 2rem; line-height: 1.02; max-width: 10ch;">
-            Athletics with warmth, structure, and purpose.
-          </h2>
-          <p style="max-width: 33ch; color: rgba(255,255,255,0.78); margin: 0;">
-            Built to feel modern and credible while staying open, community-first, and grounded in real movement.
-          </p>
-
-          <div class="stats-row">
-            <div class="stat-box">
-              <strong>Sport</strong>
-              <span>Tennis, basketball, and active play</span>
+          <h2 class="visual-card-heading">Moving with Purpose.</h2>
+          <div class="pillars-grid">
+            <div class="pillar-pill">
+              <div class="pillar-name">Tennis</div>
+              <div class="pillar-desc">Private lessons, small group clinics, and developmental programs for juniors and adults</div>
             </div>
-            <div class="stat-box">
-              <strong>Fitness</strong>
-              <span>Training for health, confidence, and readiness</span>
+            <div class="pillar-pill">
+              <div class="pillar-name">Basketball</div>
+              <div class="pillar-desc">Recreational and competitive leagues, open runs, and developmental programs for youth and adults</div>
             </div>
-            <div class="stat-box">
-              <strong>Access</strong>
-              <span>Inclusive pathways into movement</span>
+            <div class="pillar-pill wide">
+              <div class="pillar-name">Occupational Health & Workforce Fitness</div>
+              <div class="pillar-desc">Physical preparation for trades, public safety, healthcare, and other demanding careers</div>
             </div>
-          </div>
-
-          <div class="phone" aria-label="KINECO mobile preview card">
-            <div class="phone-top">
-              <span>KINECO</span>
-              <span>Move Together</span>
+            <div class="pillar-pill">
+              <div class="pillar-name">Adapted & Inclusive Fitness</div>
+              <div class="pillar-desc">Movement programming designed around individual ability, including seniors and adaptive populations</div>
             </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Featured Program</div>
-              <div class="mini-title">Community Tennis Clinics</div>
-              <div class="mini-text">
-                Skill-building sessions designed to be welcoming, developmental, and social.
-              </div>
-            </div>
-
-            <div class="mini-card">
-              <div class="mini-kicker">Coming Soon</div>
-              <div class="mini-title">Fitness & Performance Prep</div>
-              <div class="mini-text">
-                Support for people building strength, confidence, and readiness for real goals.
-              </div>
-            </div>
-
-            <div class="mini-card" style="margin-bottom: 0; background: rgba(45,106,87,0.10);">
-              <div class="mini-kicker">Why It Matters</div>
-              <div class="mini-title">Movement should feel possible.</div>
-              <div class="mini-text">
-                KINECO is about creating pathways into sport and activity that feel inviting, local, and real.
-              </div>
+            <div class="pillar-pill">
+              <div class="pillar-name">Access for All</div>
+              <div class="pillar-desc">Subsidized and sliding scale options ensuring movement is available to every community</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- MISSION -->
     <section class="section" id="mission">
       <div class="container">
         <div class="section-header">
           <h2>Our Mission</h2>
-          <p>
-            A movement ecosystem built to expand access, welcome participation, and connect sport and fitness to real-world opportunity.
-          </p>
+          <p>The north star that guides everything we build.</p>
         </div>
-
         <div class="mission-card">
           <div class="mission-copy">
-            <p>
-              KINECO Athletics exists to expand access to movement through a community-centered ecosystem of sport, fitness, and programs that welcome people of all backgrounds and abilities as they pursue real-world outcomes.
-            </p>
-
-            <div class="pillars">
-              <div class="pillar-card">
-                <div class="card-number">01</div>
-                <h3>Sport</h3>
-                <p>Athletics that build skill, confidence, and participation.</p>
-              </div>
-
-              <div class="pillar-card">
-                <div class="card-number">02</div>
-                <h3>Fitness</h3>
-                <p>Training that supports health, strength, and real-life readiness.</p>
-              </div>
-
-              <div class="pillar-card">
-                <div class="card-number">03</div>
-                <h3>Access</h3>
-                <p>Creating pathways for people of all backgrounds and abilities to participate in movement.</p>
-              </div>
-
-              <div class="pillar-card">
-                <div class="card-number">04</div>
-                <h3>Community</h3>
-                <p>Movement experiences that build connection, belonging, and local momentum.</p>
-              </div>
-            </div>
+            <p>We believe movement belongs to everyone. KINECO Athletics exists to make that true — building a community-centered ecosystem of sport and fitness that opens doors, not just gyms.</p>
+            <p>Every program we offer — from tennis and basketball to workforce fitness and adaptive movement — is designed with one question in mind: <strong>who are we leaving out, and how do we bring them in?</strong></p>
           </div>
-
           <aside class="quote-block">
-            <div>
-              <p>“Seeing is believing. KINECO is the beginning of a movement brand that feels both credible and welcoming.”</p>
-            </div>
-            <div style="color: var(--muted); font-weight: 700;">
-              Designed for real people, real spaces, and real momentum.
-            </div>
+            <div class="quote-block-label">Our Story</div>
+            <p>KINECO wasn't built in a boardroom. It was built from years spent inside classrooms, on courts, and in community centers — watching who gets access to sport and fitness, and who doesn't.</p>
+            <p>What we saw was a gap. Not just in facilities or funding, but in who feels welcomed, who gets developed, and whose goals get taken seriously.</p>
+            <div class="quote-block-footer">KINECO exists to close that gap — one program, one community, one person at a time.</div>
           </aside>
         </div>
       </div>
     </section>
 
+    <!-- PROGRAMS -->
     <section class="section" id="programs">
       <div class="container">
         <div class="section-header">
-          <h2>Program areas that can grow with the brand.</h2>
-          <p>
-            KINECO can start with focused offerings and scale into a broader athletics and movement ecosystem over time.
-          </p>
+          <h2>What We Offer</h2>
+          <p>Five focused programs built around real people and real outcomes.</p>
         </div>
-
         <div class="program-grid">
           <article class="program-card">
-            <div class="program-top">
-              <h3>KINECO Tennis</h3>
-              <span class="tag">Current fit</span>
-            </div>
-            <p>
-              Youth and community-based tennis instruction with an emphasis on skill development, confidence, and consistency.
-            </p>
+            <div class="program-top"><h3>Tennis</h3><span class="tag">Active</span></div>
+            <p>Private lessons, small group clinics, and developmental programs for juniors and adults of all skill levels.</p>
           </article>
-
           <article class="program-card">
-            <div class="program-top">
-              <h3>KINECO Basketball</h3>
-              <span class="tag">Expansion</span>
-            </div>
-            <p>
-              Accessible basketball programming that can include clinics, developmental sessions, and community runs.
-            </p>
+            <div class="program-top"><h3>Basketball</h3><span class="tag">Expanding</span></div>
+            <p>Recreational and competitive leagues, open runs, and developmental programs for youth and adult players.</p>
           </article>
-
           <article class="program-card">
-            <div class="program-top">
-              <h3>KINECO Performance</h3>
-              <span class="tag">Versatile</span>
-            </div>
-            <p>
-              Fitness and performance training built around everyday goals, athletic development, and physical readiness.
-            </p>
+            <div class="program-top"><h3>Occupational Health & Workforce Fitness</h3><span class="tag">B2B + Individual</span></div>
+            <p>Physical preparation for trades, public safety, healthcare, and demanding careers. Built for individuals and employer partnerships.</p>
           </article>
-
           <article class="program-card">
-            <div class="program-top">
-              <h3>KINECO Readiness</h3>
-              <span class="tag">Practical</span>
-            </div>
-            <p>
-              Support for people preparing for fitness-based pathways such as public service, academy testing, or structured goals.
-            </p>
+            <div class="program-top"><h3>Adapted & Inclusive Fitness</h3><span class="tag">Inclusive</span></div>
+            <p>Movement programming designed around individual ability — including seniors, adaptive populations, and anyone returning to fitness.</p>
           </article>
-
           <article class="program-card">
-            <div class="program-top">
-              <h3>KINECO Adaptive</h3>
-              <span class="tag">Inclusive</span>
-            </div>
-            <p>
-              Movement opportunities designed with accessibility and participation in mind, not as an afterthought.
-            </p>
-          </article>
-
-          <article class="program-card">
-            <div class="program-top">
-              <h3>KINECO Community</h3>
-              <span class="tag">Bridge</span>
-            </div>
-            <p>
-              Events, partnerships, and local collaborations that connect schools, families, cities, and community spaces.
-            </p>
+            <div class="program-top"><h3>Access for All</h3><span class="tag">Core Commitment</span></div>
+            <p>Subsidized and sliding scale options woven into every program — because access is not an afterthought at KINECO.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="model">
-      <div class="container split-section">
-        <div>
-          <div class="section-header" style="margin-bottom: 1rem;">
-            <h2>Warm, modern, and built to feel inviting.</h2>
-          </div>
-          <p style="color: var(--muted); margin: 0 0 1rem;">
-            The KINECO brand direction blends authentic community energy with polished, tech-savvy presentation. The goal is not luxury or intimidation. It is clarity, warmth, and credibility.
-          </p>
-
-          <div class="cta-card dark">
-            <h3>Brand feel</h3>
-            <p>
-              Classy without feeling exclusive. Athletic without feeling intimidating. Modern without feeling cold. The experience should feel like a trusted community movement platform.
-            </p>
-          </div>
-        </div>
-
-        <div class="values-grid">
-          <article class="value-card">
-            <div class="value-top">
-              <h3>Authentic</h3>
-              <span class="tag">Human</span>
-            </div>
-            <p>Real coaching, real people, and grounded community presence over artificial polish.</p>
-          </article>
-
-          <article class="value-card">
-            <div class="value-top">
-              <h3>Inviting</h3>
-              <span class="tag">Warm</span>
-            </div>
-            <p>Programs and visuals that make people feel welcome no matter their starting point.</p>
-          </article>
-
-          <article class="value-card">
-            <div class="value-top">
-              <h3>Tech-Savvy</h3>
-              <span class="tag">Modern</span>
-            </div>
-            <p>A clear digital presence, thoughtful UI, and systems that support growth and trust.</p>
-          </article>
-
-          <article class="value-card">
-            <div class="value-top">
-              <h3>Purpose-Driven</h3>
-              <span class="tag">Mission</span>
-            </div>
-            <p>Movement used as a pathway to participation, readiness, and community connection.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
+    <!-- CONNECT -->
     <section class="section" id="connect">
       <div class="container">
         <div class="cta-wrap">
           <div class="cta-card dark">
-            <h3>Build early momentum.</h3>
-            <p>
-              Use this landing page to shape interest, test messaging, and give the idea a real presence.
-            </p>
-
+            <h3>Get involved early.</h3>
+            <p>Whether you're a prospective client, community partner, or employer — we'd love to connect.</p>
             <div class="cta-links">
               <a href="#" class="button" style="background: #fff; color: var(--navy); box-shadow: none;">Join the list</a>
               <a href="#" class="button-secondary" style="background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.14);">Partner with KINECO</a>
             </div>
           </div>
-
           <div class="cta-card">
-            <h3>Suggested next steps</h3>
-            <p>
-              Add your real Instagram handle, plug in an email form, replace placeholder copy with your voice, and swap in authentic photos from coaching, tennis, and community programming.
-            </p>
+            <h3>Coming soon</h3>
+            <p>Program registration, league schedules, and employer partnership inquiries. Follow along as KINECO builds across the East Bay.</p>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container footer-line">
       <div><strong style="color: var(--navy);">KINECO ATHLETICS</strong> — Move Together</div>
-      <div>Concept homepage • Built to visualize the brand direction</div>
+      <div>East Bay rooted · Community centered · Built with purpose</div>
     </div>
   </footer>
 </body>
