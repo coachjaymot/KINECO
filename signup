@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started | KINECO Athletics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --surface: #ffffff;
+      --text: #18222b;
+      --muted: #5a6772;
+      --line: rgba(24, 34, 43, 0.08);
+      --navy: #153247;
+      --navy-2: #0f2737;
+      --green: #2d6a57;
+      --orange: #ef6c2f;
+      --shadow: 0 18px 40px rgba(21, 50, 71, 0.12);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Inter", sans-serif; background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
+
+    /* NAV */
+    .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: rgba(251, 250, 247, 0.82); border-bottom: 1px solid rgba(24, 34, 43, 0.06); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
+    .brand { display: flex; align-items: center; gap: 0.85rem; font-weight: 800; letter-spacing: 0.06em; font-size: 0.96rem; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(135deg, var(--navy), var(--green)); position: relative; box-shadow: var(--shadow); flex-shrink: 0; }
+    .brand-mark::before, .brand-mark::after { content: ""; position: absolute; border-radius: 999px; background: rgba(255,255,255,0.92); }
+    .brand-mark::before { width: 20px; height: 6px; left: 11px; top: 10px; transform: rotate(-35deg); }
+    .brand-mark::after { width: 22px; height: 6px; right: 9px; bottom: 10px; transform: rotate(-35deg); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--navy); }
+
+    /* PAGE */
+    .page { padding: 4rem 0 6rem; }
+    .page-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: start; }
+
+    /* LEFT INTRO */
+    .page-intro { position: sticky; top: 100px; }
+    .page-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 800; color: var(--green); margin-bottom: 0.75rem; }
+    .page-intro h1 { font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: -0.04em; line-height: 1.05; margin: 0 0 1rem; color: var(--navy); }
+    .page-intro p { color: var(--muted); font-size: 1rem; line-height: 1.7; margin: 0 0 1.5rem; }
+
+    .program-status { display: flex; flex-direction: column; gap: 0.5rem; }
+    .status-item { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 0.9rem; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 0.88rem; font-weight: 600; }
+    .status-item.active { border-color: rgba(45,106,87,0.25); background: rgba(45,106,87,0.06); }
+    .status-badge { font-size: 0.72rem; font-weight: 800; border-radius: 999px; padding: 0.25rem 0.6rem; }
+    .badge-active { background: rgba(45,106,87,0.15); color: var(--green); }
+    .badge-soon { background: rgba(90,103,114,0.1); color: var(--muted); }
+
+    /* FORM CARD */
+    .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow); }
+    .form-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    .form-group input, .form-group select, .form-group textarea {
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .coming-soon-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; font-style: italic; }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      background: rgba(45,106,87,0.06);
+      border: 1px solid rgba(45,106,87,0.15);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+    }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--navy); cursor: pointer; }
+    .form-check label { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.5; cursor: pointer; }
+
+    .form-submit {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 1rem 1.5rem;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 14px 30px rgba(21,50,71,0.22);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .form-submit:hover { transform: translateY(-1px); }
+
+    .form-note { font-size: 0.82rem; color: var(--muted); text-align: center; line-height: 1.5; }
+
+    /* SUCCESS */
+    .success-state { display: none; text-align: center; padding: 2rem; }
+    .success-state h3 { font-size: 1.5rem; color: var(--navy); margin: 0 0 0.5rem; letter-spacing: -0.03em; }
+    .success-state p { color: var(--muted); margin: 0 0 1.5rem; }
+    .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    @media (max-width: 860px) {
+      .page-grid { grid-template-columns: 1fr; }
+      .page-intro { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="kineco.html" class="brand" aria-label="KINECO Athletics home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>KINECO ATHLETICS</span>
+      </a>
+      <a href="kineco.html" class="back-link">← Back to home</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container page-grid">
+
+      <!-- LEFT -->
+      <div class="page-intro">
+        <div class="page-label">Get Started</div>
+        <h1>Join the KINECO Community</h1>
+        <p>Tennis programs are available now. Express interest in any upcoming program and we'll reach out as soon as it launches.</p>
+        <div class="program-status">
+          <div class="status-item active">
+            <span>Tennis</span>
+            <span class="status-badge badge-active">Available Now</span>
+          </div>
+          <div class="status-item">
+            <span>Basketball</span>
+            <span class="status-badge badge-soon">Coming Soon</span>
+          </div>
+          <div class="status-item">
+            <span>Occupational Health & Workforce Fitness</span>
+            <span class="status-badge badge-soon">Coming Soon</span>
+          </div>
+          <div class="status-item">
+            <span>Adapted & Inclusive Fitness</span>
+            <span class="status-badge badge-soon">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="form-card">
+        <div id="form-state">
+          <div class="form-grid">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Full Name</label>
+                <input type="text" id="f-name" placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label for="f-email">Email Address</label>
+                <input type="email" id="f-email" placeholder="you@email.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-phone">Phone Number</label>
+                <input type="tel" id="f-phone" placeholder="(510) 000-0000" />
+              </div>
+              <div class="form-group">
+                <label for="f-program">Program Interest</label>
+                <select id="f-program">
+                  <option value="" disabled selected>Select a program</option>
+                  <option value="tennis">Tennis</option>
+                  <option value="basketball">Basketball — Coming Soon</option>
+                  <option value="workforce">Occupational Health & Workforce Fitness — Coming Soon</option>
+                  <option value="adapted">Adapted & Inclusive Fitness — Coming Soon</option>
+                </select>
+                <span class="coming-soon-note">Select any program — we'll notify you when coming soon programs launch.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-message">Message / Notes</label>
+              <textarea id="f-message" placeholder="Tell us about your goals, availability, or any questions you have..."></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="f-minor" />
+              <label for="f-minor">I am a parent or guardian signing up on behalf of a minor. I understand that additional consent and information may be required.</label>
+            </div>
+            <button class="form-submit" onclick="handleSubmit()">Submit Interest</button>
+            <p class="form-note">We'll follow up by email within 1–2 business days.</p>
+          </div>
+        </div>
+        <div class="success-state" id="success-state">
+          <div class="success-icon">✓</div>
+          <h3>You're on the list.</h3>
+          <p>Thanks for reaching out. We'll be in touch within 1–2 business days.</p>
+          <a href="kineco.html" style="display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0.85rem 1.5rem;font-weight:700;font-size:0.95rem;background:var(--navy);color:#fff;box-shadow:0 14px 30px rgba(21,50,71,0.22);">Back to KINECO</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function handleSubmit() {
+      const name = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const program = document.getElementById('f-program').value;
+      if (!name || !email || !program) {
+        alert('Please fill in your name, email, and select a program.');
+        return;
+      }
+      document.getElementById('form-state').style.display = 'none';
+      document.getElementById('success-state').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
